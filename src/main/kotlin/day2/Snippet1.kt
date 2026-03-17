@@ -10,11 +10,11 @@ package day2
 //         - One fix = one commit: fix: resolve NPE in findUserById null return
 
 fun findUserById(id: Int): String? {
-    val db = mapOf(1 to "Alice", 2 to "Bob")
+    val db? = mapOf(1 to "Alice", 2 to "Bob")
     return db[id] // Returns String? — may be null for unknown IDs
 }
 
 fun main() {
-    val userName = findUserById(99)
-    println(userName.uppercase()) // 💥 CRASH: userName is null
+    val userName? = findUserById(99)
+    println(userName?.uppercase()?:"user not found") // 💥 CRASH: userName is null
 }
